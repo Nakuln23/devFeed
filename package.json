@@ -1,0 +1,25 @@
+{
+  "name": "devfeed",
+  "version": "1.0.0",
+  "description": "Social Network for developers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nakuln23/devFeed.git"
+  },
+  "author": "Nakul Nagargade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nakuln23/devFeed/issues"
+  },
+  "homepage": "https://github.com/Nakuln23/devFeed#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.0",
+    "passport": "^0.4.0"
+  }
+}
