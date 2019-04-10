@@ -7,7 +7,7 @@ const keys = require('./config/keys')
 //Importing routes
 const userRoutes = require('./routes/api/users');
 const profileRoutes = require('./routes/api/profile');
-const postRoute = require('./routes/api/posts');
+const postRoutes = require('./routes/api/posts');
 
 
 //Express Routes
@@ -17,7 +17,7 @@ app.use('/api/posts', postRoutes)
 
 
 //DB Connection
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
 .then(() => {console.log('MongoDB is connected')})
 .catch((err) => {console.log(err)})
 
