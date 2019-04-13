@@ -3,6 +3,11 @@ const app = express();
 const mongoose = require('mongoose')
 const port = 5000;
 const keys = require('./config/keys')
+const bodyParser = require('body-parser');
+
+//Adding Body-Parser
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //Importing routes
 const userRoutes = require('./routes/api/users');
