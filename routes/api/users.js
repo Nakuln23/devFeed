@@ -3,6 +3,8 @@ const router = express.Router()
 const Users = require('../../models/Users')
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys')
 
 
 router.get('/test', (req,res) => {
@@ -51,6 +53,42 @@ router.post('/register', (req,res) => {
    }}
 )})
 
+//@route GET api/users/login
+//@desc  Logging in User / Returning a JWT token  
+//@access Public
 
+router.post('/login', (req,res) => {
+    const email = req.body.email,
+    const password = req.body.password
+    
+    //Find user by email
+    Users.findOne({email})
+    .then(user => {
+        if(!user) {
+          return res.status(404).json({email: "Email not found"})
+        }
+
+        //Check Password
+        bcrypt.compare(password, user.password)
+        .then(isMatch =>{
+            if (isMatch) {
+                //User Matched
+                const payload = { id: user.id, name: user.name, avatar: user.avatar} //Create JWT payload
+
+                //Sign token
+                jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err,token => {
+                    res.json({
+                        success: true,
+                        token : 'Bearer ' + token
+                    })
+                }) )
+                res.json({msg:"success"})
+            } else {
+                return res.status(400).json({password:"Password not correct"})
+            }
+        })
+    })
+
+})
 
 module.exports = router;
