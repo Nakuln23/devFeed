@@ -1,10 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/layout/Navbar';
+import Landing from './components/layout/Landing';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
-   <div></div>
+   <div>
+     <Navbar/>
+     <Landing/>
+     <Footer/>
+   </div>
   );
 }
 
