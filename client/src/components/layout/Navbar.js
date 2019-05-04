@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom'
 
 export default function Navbar() {
   return (
@@ -6,7 +7,7 @@ export default function Navbar() {
        {/* Navbar  */}
   <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
     <div className="container">
-      <a className="navbar-brand" href="landing.html">DevConnector</a>
+      <Link className="navbar-brand" to="/">DevConnector</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -21,10 +22,10 @@ export default function Navbar() {
 
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="register.html">Sign Up</a>
+            <Link className="nav-link" to="/register">Sign Up</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="login.html">Login</a>
+            <Link className="nav-link" to="login">Login</Link>
           </li>
         </ul>
       </div>
